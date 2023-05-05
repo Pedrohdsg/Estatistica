@@ -1,18 +1,18 @@
-# This is a sample Python script.
+import pandas as pd
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+dados = pd.read_csv('dados.csv')
 
+#print(dados)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+print(sorted(dados['Anos de Estudo'].unique()))
 
+print(sorted(dados['UF'].unique()))
+print(sorted(dados['Sexo'].unique()))
+print(sorted(dados['Idade'].unique()))
+print(sorted(dados['Cor'].unique()))
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+print(dados.Idade.max())
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print('De %s até %s anos' % (dados.Idade.min(), dados.Idade.max()))
 
-import pandas
+print('De %s até %s metros' % (dados['Altura'].min(), dados.Altura.max()))
