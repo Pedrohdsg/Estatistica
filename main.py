@@ -50,7 +50,31 @@ percentual = pd.crosstab(dados.Sexo, dados.Cor, aggfunc = 'mean', values = dados
 percentual.rename(index = sexo, inplace = True)
 percentual.rename(columns = cor, inplace = True)
 
-print(frequencia)
-print(percentual)
+dados.Renda.min()
+dados.Renda.max()
 
-#print(frequencia, percentual)
+classes = [0, 1576, 3152, 7880, 15760, 200000]
+labels = ['E','D','C','B','A']
+
+frequencia = pd.value_counts(pd.cut(x = dados.Renda,
+       bins = classes,
+       labels = labels,
+       include_lowest = True)
+                )
+
+percentual = pd.value_counts(pd.cut(x = dados.Renda,
+       bins = classes,
+       labels = labels,
+       include_lowest = True),
+        normalize = True
+                             )
+
+dist_freq_quantitativas_personalizadas = pd.DataFrame(
+        {'Frequencia': frequencia, 'Porcentagem (%)': percentual}
+)
+
+print(dist_freq_quantitativas_personalizadas.sort_index(ascending = False))
+
+#print(frequencia)
+#print(percentual)
+
