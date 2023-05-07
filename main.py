@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+import seaborn as sns
 
 dados = pd.read_csv('dados.csv')
 
@@ -73,8 +75,36 @@ dist_freq_quantitativas_personalizadas = pd.DataFrame(
         {'Frequencia': frequencia, 'Porcentagem (%)': percentual}
 )
 
-print(dist_freq_quantitativas_personalizadas.sort_index(ascending = False))
+#print(dist_freq_quantitativas_personalizadas.sort_index(ascending = False))
+n = dados.shape[0]
+k = 1 + (10/3) * np.log10(n)
+k = int(k.round(0))
 
+frequencia = pd.value_counts(
+    pd.cut(
+        x = dados.Renda,
+        bins = k,
+        include_lowest = True
+    ),
+    sort = False
+)
+
+percentual = pd.value_counts(
+    pd.cut(
+        x = dados.Renda,
+        bins = k,
+        include_lowest = True
+    ),
+    sort = False,
+    normalize = True
+)
+
+dist_freq_quantitativas_amplitude_fixa = pd.DataFrame(
+        {'Frequencia': frequencia, 'Porcentagem (%)': percentual}
+)
+
+print(dist_freq_quantitativas_amplitude_fixa)
 #print(frequencia)
 #print(percentual)
+
 
