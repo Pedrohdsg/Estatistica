@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 dados = pd.read_csv('dados.csv')
 
@@ -107,4 +108,15 @@ print(dist_freq_quantitativas_amplitude_fixa)
 #print(frequencia)
 #print(percentual)
 
+ax = sns.histplot(dados.Altura, kde = True)
+
+ax.figure.set_size_inches(12, 6)
+ax.set_title('Distribuição de Frequências - Altura', fontsize=18)
+ax.set_xlabel('Metros', fontsize=14)
+
+#dados.Altura.hist(bins=50, figsize=(12,6))
+
+plt.show()
+
+dist_freq_quantitativas_personalizadas['Frequencia'].plot.bar(width=1, color = 'blue', alpha = 0.2, figsize = (12,6))
 
