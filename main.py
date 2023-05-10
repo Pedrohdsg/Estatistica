@@ -118,7 +118,7 @@ ax.set_xlabel('Metros', fontsize=14)
 
 #plt.show()
 
-dist_freq_quantitativas_personalizadas['Frequencia'].plot.bar(width=1, color = 'blue', alpha = 0.2, figsize = (12,6))
+# dist_freq_quantitativas_personalizadas['Frequencia'].plot.bar(width=1, color = 'blue', alpha = 0.2, figsize = (12,6))
 
 media = dados.Renda.mean()
 print(media)
@@ -132,7 +132,12 @@ print(dados.head())
 
 #print(dataset.Idade.mean())
 #print(dataset.groupby('Sexo').mean().loc['H'])
-print(dados.Renda.median())
-print(dados.Renda.quantile())
-print(dados.Renda.mode())
-print(dados.Altura.mode())
+#print(dados.Renda.median())
+#print(dados.Renda.quantile([0.25, 0.5, 0.75]))
+#print(dados.Renda.mode())
+#print(dados.Altura.mode())
+
+print(dados.Renda.quantile([i/100 for i in range (1, 100)]))
+
+
+plt.show()
