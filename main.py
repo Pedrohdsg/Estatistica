@@ -104,7 +104,7 @@ dist_freq_quantitativas_amplitude_fixa = pd.DataFrame(
         {'Frequencia': frequencia, 'Porcentagem (%)': percentual}
 )
 
-print(dist_freq_quantitativas_amplitude_fixa)
+#print(dist_freq_quantitativas_amplitude_fixa)
 #print(frequencia)
 #print(percentual)
 
@@ -116,7 +116,23 @@ ax.set_xlabel('Metros', fontsize=14)
 
 #dados.Altura.hist(bins=50, figsize=(12,6))
 
-plt.show()
+#plt.show()
 
 dist_freq_quantitativas_personalizadas['Frequencia'].plot.bar(width=1, color = 'blue', alpha = 0.2, figsize = (12,6))
 
+media = dados.Renda.mean()
+print(media)
+
+print(dados.head())
+
+#dataset = pd.DataFrame({
+#    'Sexo': ['H', 'M', 'M', 'M', 'M', 'H', 'H', 'H', 'M', 'M'],
+#    'Idade': [53, 72, 54, 27, 30, 40, 58, 32, 44, 51]
+#})
+
+#print(dataset.Idade.mean())
+#print(dataset.groupby('Sexo').mean().loc['H'])
+print(dados.Renda.median())
+print(dados.Renda.quantile())
+print(dados.Renda.mode())
+print(dados.Altura.mode())
